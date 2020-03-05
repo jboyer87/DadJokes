@@ -42,6 +42,8 @@ namespace DadJokes.SampleApp
 									  orderby newGroup.Key
 									  select newGroup;
 
+				int i = 1;
+
 				// Display the jokes grouped by length.
 				foreach (var group in jokesGroupedByLength)
 				{
@@ -49,7 +51,8 @@ namespace DadJokes.SampleApp
 
 					foreach (var joke in group)
 					{
-						Console.WriteLine("\n" + joke.Joke + "\n");
+						Console.WriteLine("\n" + i + ". " + joke.Joke + "\n");
+						i++;
 					}
 				}
 			}
