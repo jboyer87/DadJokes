@@ -11,7 +11,7 @@ namespace DadJokes.SampleApp
 	{
 		static void Main()
 		{
-			// Set up the config
+			// Set up the API config
 			string url = "https://icanhazdadjoke.com/";
 			var responseType = ResponseType.Json;
 			var requestType = RequestType.Json;
@@ -38,9 +38,9 @@ namespace DadJokes.SampleApp
 				Console.WriteLine(matchingJokes.Count + " jokes were found:");
 
 				var jokesGroupedByLength = from joke in matchingJokes
-									  group joke by joke.Length into newGroup
-									  orderby newGroup.Key
-									  select newGroup;
+										   group joke by joke.Length into newGroup
+										   orderby newGroup.Key
+										   select newGroup;
 
 				int i = 1;
 

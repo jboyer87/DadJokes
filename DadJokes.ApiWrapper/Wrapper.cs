@@ -31,12 +31,12 @@ namespace DadJokes.ApiWrapper
 		}
 
 		/// <summary>
-		/// Gets 30 jokes from the API containing a search term <paramref name="term"/>. The 
+		/// Gets up to 30 jokes from the API containing a search term <paramref name="term"/>. The 
 		/// matching term is emphasized by being surrounded by angle brackets.
 		/// </summary>
 		/// <param name="connection">The connection to utilize when sending a request.</param>
 		/// <param name="term">The term to search for and emphasize in the resulting jokes.</param>
-		/// <returns></returns>
+		/// <returns>A list of joke results with the search term emphasized.</returns>
 		public static List<JokeResult> GetJokesContaining(IConnection connection, string term)
 		{
 			string endpoint = "/search?term=" + term + "&limit=30";
