@@ -61,3 +61,9 @@ Grabs up to 30 (or the maximum found) jokes containing a specific term. For exam
 ```
 List<JokeResult> jokes = Wrapper.GetJokesContaining(connection, "dog");
 ```
+
+# Sample Application Run
+
+Below is a screenshot of the application running in a console environment. The application displays a random joke and then takes a search term. Once the user has entered a search term, the application displays up to 30 jokes that contain the search term (with the search term emphasized, I.E. `<term>`) grouped by joke length:
+
+![Image of sample application run](SampleRun.png)
