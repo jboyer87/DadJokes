@@ -6,6 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\DadJokes.ApiWrapper\DadJokes.ApiWrapper.csproj" />
 		<ProjectReference Include="..\DadJokes.Common\DadJokes.Common.csproj" />
 	</ItemGroup>
 
