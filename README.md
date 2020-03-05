@@ -28,6 +28,20 @@ The API Wrapper returns `JokeResult` objects that have a few properties exposed:
 - **WordCount** (int) - How many words the joke contains.
 - **Length** (`JokeLength` enum) - Returns an enum depending on the `WordCount`. Returns `JokeLength.Short` for <10 words, `JokeLength.Medium` for 10-19 words, and `JokeLength.Long` for >= 20 words.
 
+Joke methods can be called as shown below:
+
+- **`JokeResult.EmphasizeTerm(string term)`** - Emphasizes a certain term in the joke (retaining the case). For example:
+
+```
+I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+```
+
+Calling `joke.EmphasizeTerm("dog");` changes the joke text (`Joke`) to:
+
+```
+I went to the zoo the other day, there was only one <dog> in it. It was a shitzu.
+```
+
 ## Using the API Wrapper
 
 Once you have a connection object set up, you can use the pre-defined API wrapper methods below.
@@ -42,8 +56,8 @@ JokeResult randomJoke = Wrapper.GetRandomJoke(connection);
 
 ### Search for a number of jokes containing a specific term
 
-Grab a number of jokes containing a specific term. For example, grab 10 jokes that contain the term "dog":
+Grabs up to 30 (or the maximum found) jokes containing a specific term. For example, grab up to 30 jokes that contain the term "dog":
 
 ```
-List<JokeResult> jokes = Wrapper.GetJokesContaining("dog", 10);
+List<JokeResult> jokes = Wrapper.GetJokesContaining(connection, "dog");
 ```

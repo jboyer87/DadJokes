@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
 namespace DadJokes.ApiWrapper
@@ -11,6 +12,8 @@ namespace DadJokes.ApiWrapper
 	/// </summary>
 	public class JokeResult
 	{
+		#region [Properties]
+
 		/// <summary>
 		/// The joke ID.
 		/// </summary>
@@ -61,5 +64,33 @@ namespace DadJokes.ApiWrapper
 			Medium  = 1,
 			Large = 2
 		}
+
+		#endregion
+
+		#region [Public Methods]
+
+		/// <summary>
+		/// Modifies the joke text by surrounding the specified term with angle-brackets.
+		/// </summary>
+		/// <param name="term">The term to emphasize.</param>
+		public void EmphasizeTerm(string term)
+		{
+			// lowercase terms dog => <dog>
+			string pattern = "<" + term + ">";
+
+			// uppercase terms DOG => <DOG>
+			string allUpper = term.ToUpper();
+			string patternUpper = "<" + allUpper + ">";
+
+			// first word in a sentence or formal term Dog => <Dog>
+			string firstUpper = char.ToUpper(term[0]) + term.Substring(1);
+			string patternFirstUpper = "<" + firstUpper + ">";
+
+			this.Joke = Regex.Replace(this.Joke, firstUpper, patternFirstUpper);
+			this.Joke = Regex.Replace(this.Joke, allUpper, patternUpper);
+			this.Joke = Regex.Replace(this.Joke, term, pattern);
+		}
+
+		#endregion
 	}
 }
