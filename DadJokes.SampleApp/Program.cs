@@ -60,6 +60,9 @@ namespace DadJokes.SampleApp
 			{
 				Console.WriteLine("No jokes were found matching your search term.");
 			}
+
+			Console.WriteLine("Press any key to exit...");
+			Console.ReadKey();
 		}
 
 		#region [Private Methods]
