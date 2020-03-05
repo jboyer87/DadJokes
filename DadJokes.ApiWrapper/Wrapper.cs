@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using DadJokes.Common;
 using DadJokes.Common.Interfaces;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json.Linq;
 
 namespace DadJokes.ApiWrapper
 {

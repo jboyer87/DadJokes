@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DadJokes.Utilities.Interfaces
+﻿namespace DadJokes.Utilities.Interfaces
 {
 	/// <summary>
 	/// Represents a validatable object.
