@@ -21,44 +21,74 @@ namespace DadJokes.SampleApp
 			// Set up a new connection
 			var connection = new BasicConnection(config);
 
-			// Use the API wrapper to grab a random joke
-			JokeResult randomJoke = Wrapper.GetRandomJoke(connection);
+			Console.WriteLine("Dad Jokes are the best jokes!");
 
-			Console.WriteLine("Here's a random joke for you to enjoy!:\n");
+			// Prompt the user
+			int choice = -1;
 
-			DisplayJoke(randomJoke);
-
-			string term = PromptForSearchTerm();
-
-			// Grab matching jokes from the API
-			List<JokeResult> matchingJokes = Wrapper.GetJokesContaining(connection, term);
-
-			if(matchingJokes.Count > 0)
+			while(choice == -1)
 			{
-				Console.WriteLine(matchingJokes.Count + " jokes were found:");
+				Console.WriteLine("Please choose an option:");
+				Console.WriteLine("\t1. Random joke");
+				Console.WriteLine("\t2. Search for jokes: ");
+				Console.Write("Choice (1 or 2): ");
 
-				var jokesGroupedByLength = from joke in matchingJokes
-										   group joke by joke.Length into newGroup
-										   orderby newGroup.Key
-										   select newGroup;
+				string input = Console.ReadLine();
 
-				int i = 1;
+				Int32.TryParse(input, out int selection);
 
-				// Display the jokes grouped by length.
-				foreach (var group in jokesGroupedByLength)
+				if(selection == 1)
 				{
-					Console.WriteLine($"{group.Count()} {group.Key} jokes:");
+					// Use the API wrapper to grab a random joke
+					JokeResult randomJoke = Wrapper.GetRandomJoke(connection);
 
-					foreach (var joke in group)
-					{
-						Console.WriteLine("\n" + i + ". " + joke.Joke + "\n");
-						i++;
-					}
+					Console.WriteLine("Here's a random joke for you to enjoy!:\n");
+
+					DisplayJoke(randomJoke);
+
+					break;
 				}
-			}
-			else
-			{
-				Console.WriteLine("No jokes were found matching your search term.");
+				else if (selection == 2)
+				{
+					string term = PromptForSearchTerm();
+
+					// Grab matching jokes from the API
+					List<JokeResult> matchingJokes = Wrapper.GetJokesContaining(connection, term);
+
+					if (matchingJokes.Count > 0)
+					{
+						Console.WriteLine(matchingJokes.Count + " jokes were found:");
+
+						var jokesGroupedByLength = from joke in matchingJokes
+												   group joke by joke.Length into newGroup
+												   orderby newGroup.Key
+												   select newGroup;
+
+						int i = 1;
+
+						// Display the jokes grouped by length.
+						foreach (var group in jokesGroupedByLength)
+						{
+							Console.WriteLine($"{group.Count()} {group.Key} jokes:");
+
+							foreach (var joke in group)
+							{
+								Console.WriteLine("\n" + i + ". " + joke.Joke + "\n");
+								i++;
+							}
+						}
+					}
+					else
+					{
+						Console.WriteLine("No jokes were found matching your search term.");
+					}
+
+					break;
+				}
+				else
+				{
+					Console.WriteLine("Choice not recognized, please try again.");
+				}
 			}
 
 			Console.WriteLine("Press any key to exit...");
