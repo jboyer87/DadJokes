@@ -36,17 +36,6 @@ namespace DadJokes.Common
 		public string Type { get; private set; }
 
 		/// <summary>
-		/// Represents the application/x-www-form-urlencoded request type.
-		/// </summary>
-		public static RequestType Form
-		{
-			get
-			{
-				return new RequestType("application/x-www-formurlencoded");
-			}
-		}
-
-		/// <summary>
 		/// Represents the application/json request type.
 		/// </summary>
 		public static RequestType Json

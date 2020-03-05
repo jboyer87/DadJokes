@@ -36,17 +36,6 @@ namespace DadJokes.Common
 		public string Type { get; private set; }
 
 		/// <summary>
-		/// Represents the text/html response type.
-		/// </summary>
-		public static ResponseType Html
-		{
-			get
-			{
-				return new ResponseType("text/html");
-			}
-		}
-
-		/// <summary>
 		/// Represents the application/json response type.
 		/// </summary>
 		public static ResponseType Json
@@ -54,17 +43,6 @@ namespace DadJokes.Common
 			get
 			{
 				return new ResponseType("application/json");
-			}
-		}
-
-		/// <summary>
-		/// Represents the text/plain response type.
-		/// </summary>
-		public static ResponseType PlainText
-		{
-			get
-			{
-				return new ResponseType("text/plain");
 			}
 		}
 
