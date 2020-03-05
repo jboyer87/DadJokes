@@ -7,6 +7,12 @@ namespace DadJokes.Common
 	/// <summary>
 	/// The <c>ResponseType</c> class models the common API response types.
 	/// </summary>
+	/// <example>
+	/// Set <c>apiResponseType</c> to "application/json"
+	/// <code>
+	/// var apiResponseType = ResponseType.Json;
+	/// </code>
+	/// </example>
 	public class ResponseType
 	{
 		#region [Constructors]

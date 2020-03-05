@@ -7,6 +7,12 @@ namespace DadJokes.Common
 	/// <summary>
 	/// The <c>RequestType</c> class models the common API request types.
 	/// </summary>
+	/// <example>
+	/// Set <c>apiRequestType</c> to "application/json"
+	/// <code>
+	/// var apiRequestType = RequestType.Json;
+	/// </code>
+	/// </example>
 	public class RequestType
 	{
 		#region [Constructors]
